@@ -16,4 +16,4 @@ Steps If you want to use this
 
 You can check this in codepen also (https://codepen.io/amitbisht511/pen/aYyWda)
 
-For Contributing Please check (CONTRIBUTING.md)
+For Contributing Please check [CONTRIBUTING.md](CONTRIBUTING.md)
