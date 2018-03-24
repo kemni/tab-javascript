@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>tabs</title>
+  <style type="text/css">
+
+  * {
+    box-sizing:border-box;
+  }
+
+  .tab-content{
+    display:none;
+    
+  }
+  .tab-content.active{
+    display:block;
+  }
+  ul {
+    display:block;
+    margin:0%;
+    padding:0%;
+    clear:both;
+  }
+  li{
+    float:left;
+    list-style:none;
+    background-color:#333;
+    margin-right:1%;
+    box-sizing:border-box;
+  }
+  ul::after{
+    content: '.';
+    display:block;
+    visibility: hidden;
+    height:0;
+    clear:both;
+  }
+
+  .tab-link.active{
+    background-color:black;
+  }
+  .tab-link a{
+    color:white;
+    padding:20px;
+    box-sizing:border-box;
+    display:inline-block;
+    
+    text-decoration:none;
+  }
+
+  </style>
+</head>
+<body>
+  <ul id ='ul-tabs'>
+  <li class = 'tab-link'>
+    <a href = '#downloads'>Downloads</a>
+  </li>
+  
+  <li class ='tab-link'>
+    <a href = '#courses'>Courses</a>    
+  </li>
+</ul>
+
+
+<div id = 'tab-contents'>
+  
+  <div id = 'downloads' class='tab-content active'>
+    Lorem ipsum text 1 
+    Lorem ipsum text 1 
+    Lorem ipsum text 1 
+    Lorem ipsum text 1 
+    Lorem ipsum text 1 
+  </div>
+  
+  <div id = 'courses' class = 'tab-content'>
+    Lorem ipsum text 2
+    Lorem ipsum text 2 
+    Lorem ipsum text 2 
+    Lorem ipsum text 2 
+  </div>
+
+  <script type="text/javascript">
+
+var tablink,tablinkClass,tempTablink,href,tabContents,tabContent;
+
+var tablinks = document.querySelectorAll('.tab-link');
+
+
+tablinks.forEach(function (tablink){
+  tablink.onclick = function (event){
+    //prevent any other action
+    event.preventDefault();
+    
+    //first set inactive to every link of tab
+    tablinks.forEach(function(tempTablink){
+      tempTablink.setAttribute(
+          'class',                
+          tempTablink.getAttribute('class').replace(' active','')
+        );
+      });
+    
+      //set active class to current cliked element tab link
+      tablinkClass = tablink.getAttribute('class');
+      tablink.setAttribute('class',tablinkClass+' active');
+      
+      //get his nested child a with href attribute and remove # from its href
+      var href = tablink.querySelector('a').getAttribute('href').replace('#','');
+
+      //all contents of divs
+      var tabContents = document.querySelectorAll('.tab-content');
+
+      tabContents.forEach(function(tabContent){
+        
+        //set inactive to every tab content
+        tabContent.setAttribute('class',tabContent.getAttribute('class').replace(' active',''));
+
+        //set active class to proper div
+        if(tabContent.getAttribute('id') == href){
+          tabContent.setAttribute('class',tabContent.getAttribute('class')+' active');
+        }
+
+    });
+
+  };
+  
+});
+  </script>
+</div>
+</body>
+</html>
