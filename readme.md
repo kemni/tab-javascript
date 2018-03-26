@@ -11,8 +11,8 @@ Steps If you want to use this
 4. Put your Whole markup related to tab inside `<div id = 'myTab'>`
 5. and call ```document.getElementById('myTab').tab();```
 6. And change the design as you want it to be
-7. Please create a issue if you notice something strange or found a bug.
 
+>Please create a issue if you notice something strange or found a bug.
 
 You can check this in codepen also (https://codepen.io/amitbisht511/pen/aYyWda)
 
